@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-dana;
+  }
+
+  body {
+    height: 100dvh;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply relative flex items-center justify-center gap-1 h-12;
+  }
+
+  .dot,
+  .container::before,
+  .container::after {
+    content: '';
+    @apply block h-[10.32px] w-[10.32px] rounded-full bg-[#3538CD] transition-colors ease-linear;
+    transform: scale(0);
+  }
+
+  .container::before {
+    @apply animate-pulse-custom;
+    animation-delay: calc(1.3s * -0.375);
+  }
+
+  .dot {
+    @apply animate-pulse-custom;
+    animation-delay: calc(1.3s * -0.25);
+    animation-fill-mode: both;
+  }
+
+  .container::after {
+    @apply animate-pulse-custom;
+    animation-delay: calc(1.3s * -0.125);
+  }
+}
+
+@keyframes pulse-custom {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+@layer base {
+  .animate-pulse-custom {
+    animation: pulse-custom 1.3s ease-in-out infinite;
+  }
+}
