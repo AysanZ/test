@@ -13,6 +13,7 @@ module.exports = {
         dana: ["var(--font-dana)"],
       },
       colors: {
+        primary: '#000',
         neutral: {
           0: "#FFFFFF",
           50: "#F5F7FA",
