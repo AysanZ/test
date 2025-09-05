@@ -10,7 +10,7 @@ export function getMetadata() {
                 "Digital Dekamond | تست فنی Next.js + TypeScript + Tailwind",
             description:
                 "پروژه نمونه پیاده‌سازی شده برای مصاحبه شرکت دیجیتال دکاموند. شامل ورود با شماره موبایل ایران، فراخوانی API، ذخیره‌سازی localStorage و داشبورد کاربری.",
-            url: "https://your-vercel-deploy-link.vercel.app",
+            url: "https://test-omega-one-90.vercel.app/",
             type: "website",
         },
         robots: "index, follow",
