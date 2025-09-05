@@ -29,12 +29,12 @@ export function MobileInput({ label, className, onChange }: MobileInputProps) {
     const inputValue = e.target.value;
     setValue(inputValue);
 
-    if (onChange) onChange(inputValue);
-
     if (inputValue === "" || validateIranianMobile(inputValue)) {
       setError(null); // valid input or empty -> clear error
+      if (onChange) onChange(inputValue);
     } else {
-      setError("شماره موبایل معتبر نیست (فرمت: 09xxxxxxxxx)"); // invalid format
+      setError("شماره موبایل معتبر نیست"); // invalid format
+      if (onChange) onChange("");
     }
   };
 
@@ -44,7 +44,7 @@ export function MobileInput({ label, className, onChange }: MobileInputProps) {
       {label && (
         <label
           htmlFor="mobile"
-          className="mb-1 block text-sm font-medium text-foreground"
+          className="mb-3 block text-sm font-medium text-foreground"
         >
           {label}
         </label>
@@ -60,7 +60,7 @@ export function MobileInput({ label, className, onChange }: MobileInputProps) {
         aria-invalid={!!error}
         aria-describedby={error ? "mobile-error" : undefined}
         className={clsx(
-          "border-input flex h-10 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-sm outline-none transition-[color,box-shadow] placeholder:text-muted-foreground md:text-sm",
+          "border-input flex h-12 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-sm outline-none transition-[color,box-shadow] placeholder:text-muted-foreground md:text-sm",
           "focus-visible:border-ring focus-visible:ring-ring/40 focus-visible:ring-[3px]",
           error &&
             "border-destructive ring-destructive/20 focus-visible:ring-destructive/40",
@@ -69,10 +69,15 @@ export function MobileInput({ label, className, onChange }: MobileInputProps) {
       />
 
       {/* Error message shown only when validation fails */}
-      {error && (
-        <p id="mobile-error" className="mt-1 text-sm text-destructive">
+      {error ? (
+        <p
+          id="mobile-error"
+          className="mt-2 h-4 text-error-base text-sm text-destructive"
+        >
           {error}
         </p>
+      ) : (
+        <div className="mt-2 h-4"></div>
       )}
     </div>
   );

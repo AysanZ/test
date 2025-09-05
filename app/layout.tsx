@@ -23,7 +23,7 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <ReactQueryProvider>
       <html className={`${dana.variable}`}>
-        <body>
+        <body dir='rtl'>
           <Suspense fallback={<LoadingPage  />}>{children}</Suspense>
         </body>
       </html>
