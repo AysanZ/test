@@ -1,6 +1,5 @@
+import { DashboardTemplate } from "./templates/dashboard";
 
-import { LoginTemplate } from "./templates/login";
-
-export default async function Login() {
-  return <LoginTemplate />;
+export default function DashboardPage() {
+  return <DashboardTemplate />
 }

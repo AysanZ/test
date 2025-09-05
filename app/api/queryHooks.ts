@@ -18,9 +18,9 @@ type CustomMutationOptions<T> = UseMutationOptions<ApiResponse<T>, ApiError, any
     invalidateQueriesOnSuccess?: string[];
 };
 
-export const useApiQuery = <T>(url: string, key: string,  options?: any) => {
+export const useApiQuery = <T>(url: string, options?: any) => {
     return useQuery<T>({
-        queryKey: generateQueryKey(key, 'get'),
+        queryKey: generateQueryKey(url, 'get'),
         queryFn: async () => {
             const { data } = await axiosInstance.get<T>(url);
             return data;
