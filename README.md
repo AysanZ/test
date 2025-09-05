@@ -1,34 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Test Project
 
-First, run the development server:
+A modern **Next.js 14** application bootstrapped with **Vite** and managed using **pnpm**.  
+This project is structured with a clean and modular folder design, uses **React Query (TanStack Query)** for data fetching, and includes **shadcn/ui** components for a consistent UI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+---
+
+## 🚀 Tech Stack
+
+- [Next.js 14 (App Router)](https://nextjs.org/docs/app)
+- [Vite](https://vitejs.dev/)
+- [React Query (TanStack Query)](https://tanstack.com/query)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [pnpm](https://pnpm.io/) – Fast, disk space efficient package manager
+
+---
+
+## 📂 Project Structure
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+.
+├── app/                # Next.js app router pages, templates, layouts
+│   ├── api/            # API hooks (React Query)
+│   ├── components/     # Shared UI components (Button, Input, etc.)
+│   ├── templates/      # Page templates (Login, Dashboard, etc.)
+│   ├── styles/         # Global styles
+│   └── lib/            # Utilities (fonts, metadata, react-query provider)
+├── public/             # Static assets
+├── .gitignore
+├── package.json
+└── pnpm-lock.yaml
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+````
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+## 🛠️ Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Clone the repository
+```bash
+git clone https://github.com/AysanZ/test.git
+cd test
+````
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Install dependencies (with pnpm)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+pnpm install
+```
 
-## Deploy on Vercel
+### 3. Run the development server
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The app will be available at **[http://localhost:3000](http://localhost:3000)**.
+
+---
+
+## ⚡ Available Scripts
+
+* `pnpm dev` → Start dev server
+* `pnpm build` → Build the project for production
+* `pnpm start` → Start production server
+* `pnpm lint` → Run ESLint
+
+---
+
+## 🔑 Features
+
+* ✅ Authentication flow (Login with API call → store user in localStorage → Dashboard with ProtectedRoute)
+* ✅ Modular component-based architecture
+* ✅ Loading + Error handling via **React Query**
+* ✅ Accessible UI with **shadcn/ui** + **Tailwind CSS**
+* ✅ Dark mode ready (via Tailwind classes)
+* ✅ Git commits follow [Conventional Commits](https://www.conventionalcommits.org/)
+
+---
+
+## 🔒 Authentication Flow
+
+1. User logs in → API call fetches data
+2. User data is stored in `localStorage`
+3. Protected routes (like Dashboard) check `localStorage` for user
+4. Logout clears `localStorage` and redirects to Login
+
+---
+
+
+
